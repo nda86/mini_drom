@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card text-left">
+        <img class="" src="{{ car.photo.url }}" alt="{{ car.model  }}" width="300px"  height="250">
+        <div class="card-body">
+            <h4 class="card-title">{{ car.model }}</h4>
+            <p class="card-text">
+                Год выпуска: {{ car.year }}
+                <br/>
+                Цена: {{ car.price }}
+                <br/>
+                Звоните: {{ car.phone }}
+                <br/>
+                <a href="{% url 'car_update' pk=car.id %}">Редактировать</a>
+                <br/>
+                <a href="{% url 'car_delete' pk=car.id %}">Удалить</a>
+            </p>
+
+        </div>
+    </div>
+{% endblock %}

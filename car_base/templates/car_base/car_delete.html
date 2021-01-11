@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <h2>Уверены что хотите удалить {{ car.model }}?</h2>
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a href="{% url 'car_list' %}">Отмена</a>
+
+    </form>
+
+{% endblock %}

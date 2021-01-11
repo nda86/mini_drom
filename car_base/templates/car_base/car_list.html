@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table table-dark table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Модель</th>
+      <th scope="col">Год выпуска</th>
+      <th scope="col">Цена</th>
+      <th scope="col">Телефон продавца</th>
+      <th scope="col">Фото</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for car in cars %}
+    <tr>
+      <td><a href="{% url 'car_detail' pk=car.id %}">{{ car.model }}</a></td>
+      <td>{{ car.year }}</td>
+      <td>{{ car.price }}</td>
+      <td>{{ car.phone }}</td>
+      <td><img src="{{ car.photo.url }}" alt="{{ car.model }}"></td>
+      <td><a href="{% url 'car_update' pk=car.id %}">Обновить объявление</a></td>
+      <td><a href="{% url 'car_delete' pk=car.id %}">Удалить объявление</a></td>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
